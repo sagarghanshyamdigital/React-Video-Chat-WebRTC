@@ -1,11 +1,10 @@
 import React from 'react';
 import { Typography, AppBar } from '@material-ui/core';
-import { makeStyles } from "@material-ui/core/styles"
-
+import { makeStyles } from '@material-ui/core/styles';
 
 import VideoPlayer from './components/VideoPlayer';
+import Sidebar from './components/Options';
 import Notifications from './components/Notifications';
-import Options from './components/Options';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -22,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
       width: '90%',
     },
   },
+  image: {
+    marginLeft: '15px',
+  },
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
@@ -32,17 +34,18 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.wrapper}>
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography variant="h2" align="center">Video Chat</Typography>
       </AppBar>
       <VideoPlayer />
-      <Options>
+      <Sidebar>
         <Notifications />
-      </Options>
+      </Sidebar>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
